@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Autocomplete - Niche Recruiting Reviews - Niche</title>		
+		<link rel="stylesheet" href="public/main.css"/>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+		<link href='https://fonts.googleapis.com/css?family=Droid+Serif|Droid+Sans' rel='stylesheet' type='text/css'>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta charset="UTF-8">
+		<meta name="author" content="Kim Cooperrider">
+	</head>
+
+	<body>
+
+		<div class="container">
+			<div class="container-num-results">
+				<small class="num-results"></small>
+			</div>
+			<ul class="list pr-list"></ul>
+		</div>
+		
+		<script src="http://requirejs.org/docs/release/2.1.20/minified/require.js" data-main="public/scripts"></script>
+
+		<script type="text/html" id="tmpl_prItem">
+		    <li class="pr-item">
+	    		<span class="pr-item-title">
+	    			<%= title %>
+	    		</span>
+	    		<span class="pr-item-pubdate">
+	    			<%= published %>
+	    		</span>
+	    	</li>
+		</script>
+	</body>
+
+</html>
