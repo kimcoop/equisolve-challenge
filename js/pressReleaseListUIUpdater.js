@@ -12,7 +12,7 @@ require(['jquery', 'microtemplate', 'tinyPubSub'], function() {
       return tmpl('tmpl_prItem', prItem);
     }).join('');
 
-    $('.pr-list').html(markup);
+    $('.pr-list').append(markup);
   });
 
 });

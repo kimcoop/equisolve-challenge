@@ -7,10 +7,18 @@ require(['jquery', 'tinyPubSub'], function() {
 
   $(function() {
 
-    var offset = $('.pr-item').length;
-
     $.publish('pr:query', {
-      offset: offset
+      offset: 0
+    }); // Fire initial query
+
+    // TODO - spinner
+
+    $(document).click(function() {
+      var offset = $('.pr-item').length;
+
+      $.publish('pr:query', {
+        offset: offset
+      });
     });
 
   });

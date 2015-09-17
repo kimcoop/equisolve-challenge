@@ -1,0 +1,47 @@
+/** 
+ * _pr-list.scss
+ */
+
+.spinner-container {
+  text-align: center;
+}
+
+.pr-list {
+  small {
+    display: block;
+    text-align: right;
+  }
+
+  li {
+    margin: 0 auto 30px;
+  }
+
+  .pr-item-title {
+    color: rebeccapurple;
+    font-family: 'Roboto Slab', serif;
+    display: block;
+    text-align: justify;
+
+    &::after {
+      content: '';
+      clear: both;
+      display: block;
+    }
+
+    &::first-line {
+      color: lighten(rebeccapurple, 1%);
+      letter-spacing: 0.15em;
+    }
+
+    &::first-letter {
+      font-size: 3em;
+      float: left;
+      display: inline-block;
+      line-height: 0.5em;
+      padding: 5px;
+      padding-top: 8px;
+      padding-bottom: 0;
+    }
+  }
+
+}

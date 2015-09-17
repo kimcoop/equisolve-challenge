@@ -6,7 +6,7 @@ define(function() {
  'use strict';
     
   var Constants = {
-    QUERY_LIMIT_DEFAULT: 10,
+    QUERY_LIMIT_DEFAULT: 1,
     ERROR_DEFAULT: 'We\'re sorry, but something went wrong.',
 
     getPressReleaseQueryUrl: function(limit, offset) {

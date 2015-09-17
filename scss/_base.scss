@@ -14,21 +14,10 @@ a {
 .container {
   margin: 40px auto;
   max-width: 95%;
-  width: 500px;
+  width: 540px;
 }
 
-.hidden {
-  display: none;
-}
 
-input[type=text] {
-  border: 1px solid #ccc;
-  background-color: white;
-  background-image: none;
-  color: #555;
-  font-size: 14px;
-  padding: 6px 15px;
-  margin: 0;
-  outline: none;
-  width: 100%;
+li {
+  margin-bottom: 15px;
 }

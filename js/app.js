@@ -23,5 +23,6 @@ require([
   'watchdog',
   'pageActions',
   'pressReleaseService',
-  'pressReleaseListUIUpdater'
+  'pressReleaseListUIUpdater',
+  'spinnerUIUpdater'
 ]);

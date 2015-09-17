@@ -88,25 +88,12 @@ a {
 .container {
   margin: 40px auto;
   max-width: 95%;
-  width: 500px;
+  width: 540px;
 }
 
-/* line 20, ../scss/_base.scss */
-.hidden {
-  display: none;
-}
-
-/* line 24, ../scss/_base.scss */
-input[type=text] {
-  border: 1px solid #ccc;
-  background-color: white;
-  background-image: none;
-  color: #555;
-  font-size: 14px;
-  padding: 6px 15px;
-  margin: 0;
-  outline: none;
-  width: 100%;
+/* line 21, ../scss/_base.scss */
+li {
+  margin-bottom: 15px;
 }
 
 /**
@@ -115,17 +102,63 @@ input[type=text] {
 /* line 5, ../scss/_typography.scss */
 body {
   font: 400 16px/1.36em 'Lato', Arial, sans-serif;
+  color: #555;
 }
 
-/* line 9, ../scss/_typography.scss */
+/* line 10, ../scss/_typography.scss */
 p {
   margin-bottom: 1.5em;
 }
 
-/* line 13, ../scss/_typography.scss */
+/* line 14, ../scss/_typography.scss */
 small {
   color: #ccc;
   font-size: 0.8em;
 }
 
 /* Widgets */
+/** 
+ * _pr-list.scss
+ */
+/* line 5, ../scss/_pr-list.scss */
+.spinner-container {
+  text-align: center;
+}
+
+/* line 10, ../scss/_pr-list.scss */
+.pr-list small {
+  display: block;
+  text-align: right;
+}
+/* line 15, ../scss/_pr-list.scss */
+.pr-list li {
+  margin: 0 auto 30px;
+}
+/* line 19, ../scss/_pr-list.scss */
+.pr-list .pr-item-title {
+  color: rebeccapurple;
+  font-family: 'Roboto Slab', serif;
+  display: block;
+  text-align: justify;
+}
+/* line 25, ../scss/_pr-list.scss */
+.pr-list .pr-item-title::after {
+  content: '';
+  clear: both;
+  display: block;
+}
+/* line 31, ../scss/_pr-list.scss */
+.pr-list .pr-item-title::first-line {
+  color: #69349d;
+  letter-spacing: 0.15em;
+}
+/* line 36, ../scss/_pr-list.scss */
+.pr-list .pr-item-title::first-letter {
+  font-size: 3em;
+  float: left;
+  display: inline-block;
+  line-height: 0.5em;
+  padding: 5px;
+  padding-top: 8px;
+  padding-bottom: 0;
+}

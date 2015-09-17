@@ -63,10 +63,18 @@ require(['jquery', 'tinyPubSub'], function() {
 
   $(function() {
 
-    var offset = $('.pr-item').length;
-
     $.publish('pr:query', {
-      offset: offset
+      offset: 0
+    }); // Fire initial query
+
+    // TODO - spinner
+
+    $(document).click(function() {
+      var offset = $('.pr-item').length;
+
+      $.publish('pr:query', {
+        offset: offset
+      });
     });
 
   });
@@ -82,7 +90,7 @@ define('constants',[],function() {
  'use strict';
     
   var Constants = {
-    QUERY_LIMIT_DEFAULT: 10,
+    QUERY_LIMIT_DEFAULT: 1,
     ERROR_DEFAULT: 'We\'re sorry, but something went wrong.',
 
     getPressReleaseQueryUrl: function(limit, offset) {
@@ -101,9 +109,8 @@ require(['constants', 'jquery', 'tinyPubSub'], function(Constants) {
   'use strict';
 
   var query = function(offset) {
-    var offset = offset || 0; // Index is omitted initially
+    offset = offset || 0; // Index is omitted initially
     var limit = Constants.QUERY_LIMIT_DEFAULT;
-
     var url = Constants.getPressReleaseQueryUrl(limit, offset);
 
     $.ajax({
@@ -112,12 +119,6 @@ require(['constants', 'jquery', 'tinyPubSub'], function(Constants) {
       type: 'GET',
     }).done(function(response) {
       $.publish('pr:jsonLoadSuccess', response);
-    }).fail(function(response) {
-      // If we don't get a response, something went wrong,
-      // so just let the user know there's an error
-      $.publish('pr:jsonLoadError', {
-        message: Constants.ERROR_DEFAULT
-      });
     });
   };
 
@@ -184,11 +185,30 @@ require(['jquery', 'microtemplate', 'tinyPubSub'], function() {
       return tmpl('tmpl_prItem', prItem);
     }).join('');
 
-    $('.pr-list').html(markup);
+    $('.pr-list').append(markup);
   });
 
 });
 define("pressReleaseListUIUpdater", function(){});
+
+/** 
+ * spinnerUIUpdater.js
+ * 
+ */
+
+require(['jquery', 'microtemplate', 'tinyPubSub'], function() {
+  'use strict';
+
+  $.subscribe('pr:query', function(event, data) {
+    $('.icon-spinner').show();
+  });
+
+  $.subscribe('pr:jsonLoadSuccess', function(event, data) {
+    $('.icon-spinner').hide();
+  });
+
+});
+define("spinnerUIUpdater", function(){});
 
 /**
  * app.js
@@ -215,7 +235,8 @@ require([
   'watchdog',
   'pageActions',
   'pressReleaseService',
-  'pressReleaseListUIUpdater'
+  'pressReleaseListUIUpdater',
+  'spinnerUIUpdater'
 ]);
 define("app", function(){});
 
