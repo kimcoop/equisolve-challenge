@@ -7,6 +7,4 @@ JavaScript, jQuery, Sass, GruntJS, RequireJS. I have Grunt running watch + LiveR
 ### JS Libraries
 - John Resig's [Microtemplating Utility](http://ejohn.org/blog/javascript-micro-templating/)
 - Ben Alman's [Tiny Pub/Sub](https://github.com/cowboy/jquery-tiny-pubsub)
-
-### Notes
-@TODO
+- [Simple Date Formatter](https://gist.github.com/cstipkovic/3983879)

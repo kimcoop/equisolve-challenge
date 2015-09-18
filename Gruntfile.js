@@ -22,7 +22,6 @@ module.exports = function(grunt) {
     requirejs: {
       compile: {
         options: {
-          optimize: 'none', // TODO
           baseUrl: 'js',
           mainConfigFile: 'js/app.js',
           name: 'app',

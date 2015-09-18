@@ -13,6 +13,7 @@ require.config({
     jquery: 'https://code.jquery.com/jquery-2.1.4.min',
     microtemplate: 'libs/microtemplate',
     tinyPubSub: 'libs/tinyPubSub',
+    dateFormat: 'libs/simpleDateFormat',
     constants: 'utils/constants',
     watchdog: 'utils/watchdog',
   }

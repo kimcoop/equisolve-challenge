@@ -2,13 +2,17 @@
  * pressReleaseListUIUpdater.js
  */
 
-require(['jquery', 'microtemplate', 'tinyPubSub'], function() {
+require(['jquery', 'microtemplate', 'tinyPubSub', 'dateFormat'], function() {
   'use strict';
 
-  $.subscribe('pr:jsonLoadSuccess', function(event, data) {
-    $('.error-search').addClass('hidden'); // Ensure error display is hidden TODO
+  var getFormattedDate = function(rawDate) {
+    var publishDate = new Date(rawDate);
+    return publishDate.formatDate("hh:mmt on MM/dd/yyyy");
+  };
 
+  $.subscribe('pr:jsonLoadSuccess', function(event, data) {
     var markup = data.news.map(function(prItem) {
+      prItem.publishDate = getFormattedDate(prItem.published);
       return tmpl('tmpl_prItem', prItem);
     }).join('');
 
