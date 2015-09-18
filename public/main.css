@@ -71,32 +71,32 @@ table {
 /**
  * _base.scss
  */
-/* line 5, ../scss/_base.scss */
+/* line 7, ../scss/_base.scss */
 * {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
 
-/* line 9, ../scss/_base.scss */
+/* line 11, ../scss/_base.scss */
 body {
-  background: #efefef;
+  background: #F1D4AF;
 }
 
-/* line 13, ../scss/_base.scss */
+/* line 15, ../scss/_base.scss */
 a {
   color: inherit;
   text-decoration: none;
 }
 
-/* line 18, ../scss/_base.scss */
+/* line 20, ../scss/_base.scss */
 .container {
   margin: 40px auto;
   max-width: 95%;
   width: 540px;
 }
 
-/* line 25, ../scss/_base.scss */
+/* line 27, ../scss/_base.scss */
 li {
   margin-bottom: 15px;
 }
@@ -104,20 +104,20 @@ li {
 /**
  * _typography.scss
  */
-/* line 5, ../scss/_typography.scss */
+/* line 7, ../scss/_typography.scss */
 body {
   font: 400 18px/1.5em 'Droid Sans', Arial, sans-serif;
-  color: #555;
+  color: #774F38;
 }
 
-/* line 10, ../scss/_typography.scss */
+/* line 12, ../scss/_typography.scss */
 p {
   margin-bottom: 1.5em;
 }
 
-/* line 14, ../scss/_typography.scss */
+/* line 16, ../scss/_typography.scss */
 small {
-  color: #ccc;
+  color: #E08E79;
   font-size: 0.8em;
 }
 
@@ -141,29 +141,27 @@ small {
 }
 /* line 19, ../scss/_pr-list.scss */
 .pr-list .pr-item-title {
-  color: rebeccapurple;
   font-family: 'Roboto Slab', serif;
   display: block;
   text-align: justify;
 }
-/* line 25, ../scss/_pr-list.scss */
+/* line 24, ../scss/_pr-list.scss */
 .pr-list .pr-item-title::after {
   content: '';
   clear: both;
   display: block;
 }
-/* line 31, ../scss/_pr-list.scss */
+/* line 30, ../scss/_pr-list.scss */
 .pr-list .pr-item-title::first-line {
-  color: #69349d;
-  letter-spacing: 0.15em;
+  font-weight: 700;
 }
-/* line 36, ../scss/_pr-list.scss */
+/* line 34, ../scss/_pr-list.scss */
 .pr-list .pr-item-title::first-letter {
   font-size: 3em;
   float: left;
   display: inline-block;
   line-height: 0.5em;
   padding: 5px;
-  padding-top: 8px;
+  padding-top: 0.2em;
   padding-bottom: 0;
 }

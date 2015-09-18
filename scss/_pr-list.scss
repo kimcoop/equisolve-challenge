@@ -17,7 +17,6 @@
   }
 
   .pr-item-title {
-    color: rebeccapurple;
     font-family: 'Roboto Slab', serif;
     display: block;
     text-align: justify;
@@ -29,8 +28,7 @@
     }
 
     &::first-line {
-      color: lighten(rebeccapurple, 1%);
-      letter-spacing: 0.15em;
+      font-weight: 700;
     }
 
     &::first-letter {
@@ -39,7 +37,7 @@
       display: inline-block;
       line-height: 0.5em;
       padding: 5px;
-      padding-top: 8px;
+      padding-top: 0.2em;
       padding-bottom: 0;
     }
   }

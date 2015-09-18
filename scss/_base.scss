@@ -2,12 +2,14 @@
  * _base.scss
  */
 
+$cream: #F1D4AF;
+
 * {
   @include box-sizing(border-box);
 }
 
 body {
-  background: #efefef;
+  background: $cream;
 }
 
 a {
