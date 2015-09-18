@@ -79,19 +79,24 @@ table {
 }
 
 /* line 9, ../scss/_base.scss */
+body {
+  background: #efefef;
+}
+
+/* line 13, ../scss/_base.scss */
 a {
   color: inherit;
   text-decoration: none;
 }
 
-/* line 14, ../scss/_base.scss */
+/* line 18, ../scss/_base.scss */
 .container {
   margin: 40px auto;
   max-width: 95%;
   width: 540px;
 }
 
-/* line 21, ../scss/_base.scss */
+/* line 25, ../scss/_base.scss */
 li {
   margin-bottom: 15px;
 }
@@ -101,7 +106,7 @@ li {
  */
 /* line 5, ../scss/_typography.scss */
 body {
-  font: 400 16px/1.36em 'Lato', Arial, sans-serif;
+  font: 400 18px/1.5em 'Droid Sans', Arial, sans-serif;
   color: #555;
 }
 

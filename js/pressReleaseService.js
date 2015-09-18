@@ -5,10 +5,10 @@
 require(['constants', 'jquery', 'tinyPubSub'], function(Constants) {
   'use strict';
 
-  var query = function(offset) {
-    offset = offset || 0; // Index is omitted initially
-    var limit = Constants.QUERY_LIMIT_DEFAULT;
-    var url = Constants.getPressReleaseQueryUrl(limit, offset);
+  var query = function(data) {
+    var offset = data.offset || 0, // Index is omitted initially
+      limit = data.limit || Constants.QUERY_LIMIT_DEFAULT,
+      url = Constants.getPressReleaseQueryUrl(limit, offset);
 
     $.ajax({
       url: url,
@@ -20,7 +20,7 @@ require(['constants', 'jquery', 'tinyPubSub'], function(Constants) {
   };
 
   $.subscribe('pr:query', function(event, data) {
-    query(data.offset);
+    query(data);
   });
 
 });

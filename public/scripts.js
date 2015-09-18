@@ -55,34 +55,6 @@ define('watchdog',['jquery', 'tinyPubSub'], function() {
 
 });
 /**
- * pageActions.js
- */
-
-require(['jquery', 'tinyPubSub'], function() {
-  'use strict';
-
-  $(function() {
-
-    $.publish('pr:query', {
-      offset: 0
-    }); // Fire initial query
-
-    // TODO - spinner
-
-    $(document).click(function() {
-      var offset = $('.pr-item').length;
-
-      $.publish('pr:query', {
-        offset: offset
-      });
-    });
-
-  });
-
-});
-define("pageActions", function(){});
-
-/**
  * constants.js
  */
 
@@ -90,8 +62,9 @@ define('constants',[],function() {
  'use strict';
     
   var Constants = {
-    QUERY_LIMIT_DEFAULT: 1,
+    QUERY_LIMIT_DEFAULT: 2,
     ERROR_DEFAULT: 'We\'re sorry, but something went wrong.',
+    SCROLL_BUFFER_PX: 200,
 
     getPressReleaseQueryUrl: function(limit, offset) {
       return 'http://www.stellarbiotechnologies.com/media/press-releases/json?offset=' + offset + '&limit=' + limit;
@@ -102,16 +75,44 @@ define('constants',[],function() {
 
 });
 /**
+ * pageActions.js
+ */
+
+require(['constants', 'jquery', 'tinyPubSub'], function(Constants) {
+  'use strict';
+
+  $(function() {
+
+    $.publish('pr:query', {
+      offset: 0,
+      limit: 5
+    }); // Fire initial query
+
+    $(window).scroll(function() {
+      var $window = $(window);
+      if ($window.scrollTop() + $window.height() > $(document).height() - Constants.SCROLL_BUFFER_PX) {
+        $.publish('pr:query', {
+          offset: $('.pr-item').length
+        });
+      }
+    });
+
+  });
+
+});
+define("pageActions", function(){});
+
+/**
  * pressReleaseService.js
  */
 
 require(['constants', 'jquery', 'tinyPubSub'], function(Constants) {
   'use strict';
 
-  var query = function(offset) {
-    offset = offset || 0; // Index is omitted initially
-    var limit = Constants.QUERY_LIMIT_DEFAULT;
-    var url = Constants.getPressReleaseQueryUrl(limit, offset);
+  var query = function(data) {
+    var offset = data.offset || 0, // Index is omitted initially
+      limit = data.limit || Constants.QUERY_LIMIT_DEFAULT,
+      url = Constants.getPressReleaseQueryUrl(limit, offset);
 
     $.ajax({
       url: url,
@@ -123,7 +124,7 @@ require(['constants', 'jquery', 'tinyPubSub'], function(Constants) {
   };
 
   $.subscribe('pr:query', function(event, data) {
-    query(data.offset);
+    query(data);
   });
 
 });
